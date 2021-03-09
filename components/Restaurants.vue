@@ -1,10 +1,11 @@
 <template>
   <div>
     <h1>Restaurants</h1>
-    <div v-for="food in restaurants.data" :key="food.id" class="restaurant">
+    <div v-for="food in restaurants.data" :key="food.key" class="restaurant">
       <b-card
         title="Card Title"
         img-alt="Image"
+        :img-src="food.banner"
         img-top
         tag="article"
         style="max-width: 20rem;"
@@ -25,19 +26,19 @@
 <script>
 import gql from 'graphql-tag'
 export default {
-  name: 'Restaurants',
   apollo: {
-    restaurants: gql` {
+    restaurants: gql`
       query getRestaurants {
-        restaurants{
-          data{
-            logo
+        restaurants {
+          data {
             name
             banner
+            logo
+            id
           }
         }
       }
-    }`
+    `
   }
 }
 </script>
