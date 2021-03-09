@@ -1,20 +1,19 @@
 <template>
   <div>
     <h1>Restaurants</h1>
-    <div id="restaurants">
+    <div v-for="food in restaurants.data" :key="food.id" class="restaurant">
       <b-card
         title="Card Title"
-        img-src="https://picsum.photos/600/300/?image=25"
         img-alt="Image"
         img-top
         tag="article"
         style="max-width: 20rem;"
-        class="mb-2"
+        lass="mb-2"
       >
         <b-card-text>
           Some quick example text to build on the card title and make up the bulk of the card's content.
+          {{ food.name }}
         </b-card-text>
-
         <b-button href="#" variant="primary">
           Go somewhere
         </b-button>
@@ -24,14 +23,27 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 export default {
-  name: 'Restaurants'
-
+  name: 'Restaurants',
+  apollo: {
+    restaurants: gql` {
+      query getRestaurants {
+        restaurants{
+          data{
+            logo
+            name
+            banner
+          }
+        }
+      }
+    }`
+  }
 }
 </script>
 
 <style>
-#restaurants{
+.restaurant{
   display: flex;
   flex-direction: column;
   justify-content: center;
