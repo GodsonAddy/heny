@@ -1,24 +1,25 @@
 <template>
   <div>
     <h1>Restaurants</h1>
-    <div v-for="food in restaurants.data" :key="food.key" class="restaurant">
-      <b-card
-        title="Card Title"
-        img-alt="Image"
-        :img-src="food.banner"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        lass="mb-2"
-      >
-        <b-card-text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-          {{ food.name }}
-        </b-card-text>
-        <b-button href="#" variant="primary">
-          Go somewhere
-        </b-button>
-      </b-card>
+    <div class="restaurant">
+      <div v-for="restaurant in restaurants.data" :key="restaurant.id" class="rest">
+        <nuxt-link :to="`restaurant/${restaurant.slug}`">
+          <b-card
+            :title="restaurant.name"
+            img-alt="Image"
+            :img-src="restaurant.logo"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            lass="mb-2"
+            img-fluid
+          >
+            <b-card-text>
+              {{ restaurant.address }}
+            </b-card-text>
+          </b-card>
+        </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +36,10 @@ export default {
             banner
             logo
             id
+            description
+            rating
+            address
+            slug
           }
         }
       }
@@ -46,12 +51,20 @@ export default {
 <style>
 .restaurant{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 40px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: 30px;
 }
 h1{
   margin: 20px;
+}
+.rest{
+  width: 20%;
+}
+.rest a {
+  color: black;
 }
 </style>

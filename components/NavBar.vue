@@ -10,13 +10,13 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item right active to="/">
+          <b-nav-item right to="/">
             Home
           </b-nav-item>
-          <b-nav-item right active to="/about">
+          <b-nav-item right to="/about">
             About
           </b-nav-item>
-          <b-nav-item right active to="/contact">
+          <b-nav-item right to="/contact">
             Contact
           </b-nav-item>
         </b-navbar-nav>
@@ -35,6 +35,9 @@ export default {
 div:nth-child(1){
   text-decoration: underline;
   font-weight: bolder;
+}
+.nuxt-link-exact-active {
+  color: white;
 }
 
 </style>
