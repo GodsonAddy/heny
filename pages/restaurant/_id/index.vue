@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h1>  {{ $route.params.slug }} </h1>
+    <div v-if="!$apollo.queries.restaurant.loading">
+      <div class="shop">
+        <h1>  {{ restaurant.id }} </h1>
+        <h1>  {{ restaurant.slug }} </h1>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,8 +16,8 @@ export default {
     restaurant: {
       prefetch: true,
       query: gql`
-        query getRestaurant {
-          restaurant {
+        query getRestaurant($id: ID) {
+          restaurant(id: $id) {
             id
             name
             slug
@@ -21,7 +26,7 @@ export default {
       `,
       variables () {
         return {
-          slug: this.$route.params.slug
+          id: this.$route.params.id
         }
       }
     }
@@ -30,5 +35,8 @@ export default {
 </script>
 
 <style>
+.shop {
+  margin-top: 80px;
+}
 
 </style>

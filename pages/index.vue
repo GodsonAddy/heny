@@ -2,7 +2,6 @@
   <div>
     <Main />
     <Restaurants />
-    <nuxt-child />
   </div>
 </template>
 

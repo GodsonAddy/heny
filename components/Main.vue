@@ -32,7 +32,7 @@ main{
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h1{
+u h1{
   font-size: 3em;
   font-weight: bolder;
   padding: 0px 0px 0px 500px ;
@@ -42,11 +42,26 @@ h3{
   margin: 10px 0px 0px 500px;
 }
 @media (max-width: 576px) {
-  h1{
+  u h1{
     font-size: 2em;
+    margin: 10px 300px 10px 0px;
   }
    h3{
     font-size: 1em;
+    margin: 10px 0px 10px 250px;
+  }
+   main{
+    height: 50vh;
+  }
+}
+@media (min-width: 576px) and (max-width: 1000px) {
+  u h1{
+    font-size: 2em;
+    margin: 10px 300px 10px 0px;
+  }
+   h3{
+    font-size: 1.2em;
+    margin: 10px 0px 10px 250px;
   }
    main{
     height: 50vh;

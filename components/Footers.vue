@@ -17,10 +17,10 @@ export default {
 footer{
   background: black;
   color: white;
+  padding: 40px;
   position: relative;
+  left: 0;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
-  padding: 40px;
 }
 </style>

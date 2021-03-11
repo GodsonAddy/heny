@@ -3,7 +3,7 @@
     <h1>Restaurants</h1>
     <div class="restaurant">
       <div v-for="restaurant in restaurants.data" :key="restaurant.id" class="rest">
-        <nuxt-link :to="`restaurant/${restaurant.slug}`">
+        <nuxt-link :to="`restaurant/${restaurant.id}` + restaurant.slug">
           <b-card
             :title="restaurant.name"
             img-alt="Image"
@@ -66,5 +66,38 @@ h1{
 }
 .rest a {
   color: black;
+}
+@media (max-width: 576px) {
+  h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .rest{
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .rest{
+    width: 40%;
+  }
+}
+@media (min-width: 769px) and (max-width:1024px) {
+  h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .rest{
+    width: 30%;
+  }
 }
 </style>
