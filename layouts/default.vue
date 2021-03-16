@@ -1,8 +1,10 @@
 <template>
   <div>
-    <NavBar />
-    <Nuxt keep-alive />
-    <Footers />
+    <div id="app">
+      <NavBar />
+      <Nuxt keep-alive style="flex: 1" />
+      <Footers />
+    </div>
   </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
 </script>
 
 <style>
-html {
+html, body {
   font-family:
     'Source Sans Pro',
     -apple-system,
@@ -37,6 +39,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+#app{
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 *,

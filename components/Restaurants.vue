@@ -6,7 +6,7 @@
         <nuxt-link :to="`restaurant/${restaurant.id}` + restaurant.slug">
           <b-card
             :title="restaurant.name"
-            img-alt="Image"
+            :img-alt="restaurant.name"
             :img-src="restaurant.logo"
             img-top
             tag="article"
@@ -57,6 +57,7 @@ export default {
   overflow: hidden;
   flex-wrap: wrap;
   margin: 30px;
+  margin-bottom: 300px;
 }
 h1{
   margin: 20px;
